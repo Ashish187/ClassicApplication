@@ -20,7 +20,6 @@ public class ModernApplication extends AppCompatActivity {
     EditText mTextUsername;
     EditText mTextCity;
     RadioGroup radioGroup;
-    RadioButton radioButton;
     EditText mMobileNumber;
     EditText mTextBloodGroup;
     EditText mTextPassword;
@@ -47,6 +46,7 @@ public class ModernApplication extends AppCompatActivity {
         mTextBloodGroup = (EditText)findViewById(R.id.edittext_blood);
         mTextPassword = (EditText)findViewById(R.id.edittext_password);
         mTextCnfPassword = (EditText)findViewById(R.id.edittext_cnf_password);
+        radioGroup = (RadioGroup)findViewById(R.id.gender);
         mButtonRegister = (Button)findViewById(R.id.button_register);
         mTextViewLogin = (TextView)findViewById(R.id.textview_login);
         spinner_d.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -76,6 +76,8 @@ public class ModernApplication extends AppCompatActivity {
                 String blood = mTextBloodGroup.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
                 String cnf_pwd = mTextCnfPassword.getText().toString().trim();
+                 RadioButton checkedBtn = findViewById(radioGroup.getCheckedRadioButtonId());
+                String gender = checkedBtn.getText().toString().trim();
 
                 if(pwd.equals(cnf_pwd)){
                    long val = db.adduser(user,pwd);
