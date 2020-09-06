@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 Boolean res = db.checkUser(user, pwd);
                 if (res == true)
                 {
-                    Intent HomePage = new Intent(MainActivity.this,HomeActivity.class);
-                    startActivity(HomePage);
+                    startActivity(new Intent(MainActivity.this,HomeActivity.class));
                 }
                 else
                 {
